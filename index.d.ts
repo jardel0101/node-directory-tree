@@ -1,11 +1,13 @@
+//fork directory-tree by jardel0101
 declare function directoryTree(
     path: string,
     options?: {
         normalizePath?: boolean;
         exclude?: RegExp | RegExp[];
-        attributes?: (keyof directoryTree.Stats)[];
+        attributes?: string[];
         extensions?: RegExp;
     },
+    rootPathBoolean: Boolean,
     onEachFile?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
     onEachDirectory?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
 ): directoryTree.DirectoryTree;
@@ -16,7 +18,7 @@ declare namespace directoryTree {
     export class DirectoryTree {
         path: string;
         name: string;
-        size: number;
+        //size: number;
         type: "directory" | "file";
         children?: DirectoryTree[];
         extension?: string;
